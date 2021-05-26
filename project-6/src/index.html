@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Trade Coffee</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Fair Trade Coffee</h1>
+        <hr>
+        <p style="text-align: center;">Prove the authenticity of coffee using the Ethereum blockchain.</p>
+    </div>
+
+    <div id="ftc-harvest">
+        <h3>Supply Chain Roles</h3>
+        <div class="form-group">
+            <table>
+                <tr>
+                    <td>Account ID</td>
+                    <td colspan="3"><input type="text" id="accountID" name="accountID" value="0x97a52a92609895d08E45098AD39Ed28AaDf02AfE" size="50"></td>
+                </tr>
+                <tr>
+                    <td><button class="btn-farmer" id="button" type="button" data-id="10">Add Farmer</button></td>
+                    <td><button class="btn-distributor" id="button" type="button" data-id="11">Add Distributor</button></td>
+                    <td><button class="btn-retailer" id="button" type="button" data-id="12">Add Retailer</button></td>
+                    <td><button class="btn-consumer" id="button" type="button" data-id="13">Add Consumer</button></td>
+                </tr>
+            </table>
+            <div class=button-div>
+            </div>
+        </div>
+
+        Account ID: <label id="currentAccountID" name="currentAccountID" size="50"></label><br>
+
+        <div class="form-group">
+            <h3>Harvest New Product</h4>
+            <table>
+                <tr>
+                    <td>UPC</td>
+                    <td><input type="number" id="harvest-upc" name="harvest-upc" value=1></td>
+                    <td colspan="2">&nbsp;</td>                        
+                </tr>
+                <tr>
+                    <td>Current Owner ID</td>
+                    <td colspan="3"><input type="text" id="harvest-ownerID" name="harvest-ownerID" value="" size="50"></td>    
+                </tr>
+                <tr>
+                    <td>Farmer ID</td>
+                    <td colspan="3"><input type="text" id="harvest-originFarmerID" name="harvest-originFarmerID" value="" size="50"></td>    
+                </tr>
+                <tr>
+                    <td>Farm Name</td>
+                    <td colspan="3"><input type="text" id="harvest-originFarmName" name="harvest-originFarmName" value=""></td>    
+                </tr>
+                <tr>
+                    <td>Farm Information</td>
+                    <td colspan="3"><input type="text" id="harvest-originFarmInformation" name="harvest-originFarmInformation" value=""></tr>    
+                </tr>
+                <tr>
+                    <td>Farm Latitude</td>
+                    <td><input type="text" id="harvest-originFarmLatitude" name="harvest-originFarmLatitude" value=""></td>
+                    <td>Farm Longitude</td>
+                    <td><input type="text" id="harvest-originFarmLongitude" name="harvest-originFarmLongitude" value=""></td>
+                </tr>    
+                <tr>
+                    <td>Product Notes</td>
+                    <td colspan="3"><input type="text" id="harvest-productNotes" name="harvest-productNotes" value="" size="70"></td>        
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;</td>
+                    <td><button class="btn-harvest" id="button" type="button" data-id="1">Harvest</button></td>
+                </tr>
+            </table>
+            <br>
+            <h3>Fetch Product Details</h3>
+            <div class="form-group">
+                <table>
+                    <tr>
+                        <td>UPC</td>
+                        <td><input type="number" id="fetch-upc" name="fetch-upc" value=1></td>
+                        <td><button class="btn-fetch" id="button" type="button" data-id="9">Fetch Data</button></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>Item State</td>
+                        <td><label id="itemState" name="itemState">itemState</label></td>
+                        <td colspan="2">&nbsp;</td>        
+                    </tr>
+                    <tr>
+                        <td>SKU</td>
+                        <td><label id="sku" name="sku"></label></td>
+                        <td colspan="2">&nbsp;</td>        
+                    </tr>
+                    <tr>
+                        <td>Current Owner ID</td>
+                        <td colspan="3"><label id="ownerID" name="ownerID"></label></td>        
+                    </tr>
+                    <tr>
+                        <td>Farmer ID</td>
+                        <td colspan="3"><label id="originFarmerID" name="originFarmerID"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Farm Name</td>
+                        <td colspan="3"><label id="originFarmName" name="originFarmName"></label></td>        
+                    </tr>
+                    <tr>
+                        <td>Farm Information</td>
+                        <td colspan="3"><label id="originFarmInformation" name="originFarmInformation"></label></td>        
+                    </tr>
+                    <tr>
+                        <td>Farm Latitude</td>
+                        <td><label id="originFarmLatitude" name="originFarmLatitude"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Farm Longitude</td>
+                        <td><label id="originFarmLongitude" name="originFarmLongitude"></label></td>        
+                    </tr>
+                    <tr>
+                        <td>Product Notes</td>
+                        <td><label id="productNotes" name="productNotes"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Product Price</td>
+                        <td><label id="productPrice" name="productPrice">0</label> ETH</td>
+                    </tr>
+                    <tr>
+                        <td>Distributor ID</td>
+                        <td colspan="3"><label id="distributorID" name="distributorID"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Retailer ID</td>
+                        <td colspan="3"><label id="retailerID" name="retailerID"></label></td>
+                    </tr>
+                    <tr>
+                        <td>Consumer ID</td>
+                        <td colspan="3"><label id="consumerID" name="consumerID"></label></td>
+                    </tr>
+                </table>
+            </div>            
+            <h2>Workflows</h2> 
+            <hr>
+            <h3>Farmer</h3>
+            <table>
+                <tr>
+                <td style="border: 1px solid">
+                    <h4>Process</h4>
+                    <table>
+                        <tr>
+                            <td>UPC</td>
+                            <td><input type="number" id="process-upc" name="process-upc" value=1></td>
+                            <td><button class="btn-process" id="button" type="button" data-id="2">Process</button></td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="border: 1px solid">
+                    <h4>Pack</h4>
+                    <table>
+                        <tr>
+                            <td>UPC</td>
+                            <td><input type="number" id="pack-upc" name="pack-upc" value=1></td>
+                            <td><button class="btn-pack" id="button" type="button" data-id="3">Pack</button></td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+                <tr>
+                <td colspan="2" style="border: 1px solid">
+                    <h4>Sell</h4>
+                    <table>
+                        <tr>
+                            <td>UPC</td>
+                            <td><input type="number" id="sell-upc" name="sell-upc" value=1></td>
+                            <td>Product Price</td>
+                            <td><input type="number" id="sell-productPrice" name="sell-productPrice" value=1>  ETH  </td>
+                            <td><button class="btn-forsale" id="button" type="button" data-id="4">ForSale</button></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <hr>
+            <h3>Distributor</h3>
+            <table>
+                <tr>
+                <td style="border: 1px solid">
+                <h4>Buy</h4>
+                <table>
+                    <tr>
+                        <td>UPC</td>
+                        <td><input type="number" id="buy-upc" name="buy-upc" value=1></td>
+                        <td><button class="btn-buy" id="button" type="button" data-id="5">Buy</button></td>
+                    </tr>
+                </table>
+                </td>
+                <td style="border: 1px solid">
+                <h4>Ship</h4>
+                <table>
+                    <tr>
+                        <td>UPC</td>
+                        <td><input type="number" id="ship-upc" name="ship-upc" value=1></td>
+                        <td><button class="btn-ship" id="button" type="button" data-id="6">Ship</button></td>
+                    </tr>
+                </table>
+                </td>
+                </tr>
+            </table>
+
+            <hr>
+            <h3>Retailer</h3>
+            <table>
+                <tr>
+                <td style="border: 1px solid">
+                <h4>Receive</h4>
+                <table>
+                    <tr>
+                        <td>UPC</td>
+                        <td><input type="number" id="receive-upc" name="receive-upc" value=1></td>
+                        <td><button class="btn-receive" id="button" type="button" data-id="7">Receive</button></td>
+                    </tr>
+                </table>
+                </td>
+                </tr>
+            </table>
+            <hr>
+            <h3>Consumer</h3>
+            <table>
+                <tr>
+                <td style="border: 1px solid">
+                <h4>Purchase</h4>
+                <table>
+                    <tr>
+                        <td>UPC</td>
+                        <td><input type="number" id="purchase-upc" name="purchase-upc" value=1></td>
+                        <td><button class="btn-purchase" id="button" type="button" data-id="8">Purchase</button></td>
+                    </tr>
+                </table>
+                </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h2>Transaction History<span id="ftc-history"></span></h2>
+    <div>
+        <ul id="ftc-events">
+            <!-- Events will appear here from app.js -->
+        </ul>
+        <br>
+        <hr>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
